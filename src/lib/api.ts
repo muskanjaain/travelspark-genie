@@ -1,6 +1,6 @@
 import { supabase } from "@/integrations/supabase/client";
-import type { WeatherData, FlightOption, Destination, Interest } from "@/lib/aiEngine";
-import { generateWeather, generateFlights, DESTINATIONS } from "@/lib/aiEngine";
+import type { WeatherData, FlightOption, Destination, Interest } from "@/lib/ai";
+import { DataProvider, DESTINATIONS } from "@/lib/ai";
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
@@ -36,7 +36,7 @@ export async function fetchWeather(dest: Destination): Promise<{ data: WeatherDa
   }
 
   // Local fallback
-  return { data: generateWeather(dest), source: "local-fallback" };
+  return { data: DataProvider.generateWeather(dest), source: "local-fallback" };
 }
 
 export async function fetchDestinations(interests: Interest[]): Promise<{ destinations: Destination[]; source: string }> {
@@ -80,5 +80,5 @@ export async function fetchFlights(
   }
 
   // Local fallback
-  return { flights: generateFlights(destinationId, date), source: "local-fallback" };
+  return { flights: DataProvider.generateFlights(destinationId, date), source: "local-fallback" };
 }
