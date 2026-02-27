@@ -1,6 +1,6 @@
 import { supabase } from "@/integrations/supabase/client";
-import type { WeatherData, FlightOption, Destination, Interest } from "@/lib/aiEngine";
-import { generateWeather, generateFlights, DESTINATIONS } from "@/lib/aiEngine";
+import type { WeatherData, FlightOption, Destination, Interest } from "@/lib/ai";
+import { DataProvider, DESTINATIONS } from "@/lib/ai";
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
