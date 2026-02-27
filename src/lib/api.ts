@@ -36,7 +36,7 @@ export async function fetchWeather(dest: Destination): Promise<{ data: WeatherDa
   }
 
   // Local fallback
-  return { data: generateWeather(dest), source: "local-fallback" };
+  return { data: DataProvider.generateWeather(dest), source: "local-fallback" };
 }
 
 export async function fetchDestinations(interests: Interest[]): Promise<{ destinations: Destination[]; source: string }> {
