@@ -80,5 +80,5 @@ export async function fetchFlights(
   }
 
   // Local fallback
-  return { flights: generateFlights(destinationId, date), source: "local-fallback" };
+  return { flights: DataProvider.generateFlights(destinationId, date), source: "local-fallback" };
 }
